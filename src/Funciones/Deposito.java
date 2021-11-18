@@ -7,7 +7,7 @@ public class Deposito extends Opciones{
     public void transacciones(){
         System.out.print("Cuanto quiere depositar? ");
         depositar();
-        System.out.println("Usted ha depositado " + deposito);
+        System.out.println("El depósito es de: " + deposito);
         setSaldo(getSaldo() + deposito);
         System.out.println("Su saldo es " + getSaldo() );
     }
