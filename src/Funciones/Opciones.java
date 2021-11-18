@@ -40,6 +40,7 @@ public abstract class Opciones {
                 mensajero_retirar.transacciones();
             } else if (opcion == 4) {
                 System.out.println("Gracias por elegir lar red de cajeros LINK");
+                System.out.println("\nPrograma finalizado");
                 bandera = 1;
             }
 
