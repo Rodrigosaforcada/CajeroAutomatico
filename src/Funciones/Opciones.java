@@ -24,7 +24,7 @@ public abstract class Opciones {
                 if (opcion <= 4 && opcion >= 1) {
                     bandera = 1;
                 } else {
-                    System.out.println("Error weon");
+                    System.out.println("Error sin weon");
                 }
 
             } while (bandera == 0);
