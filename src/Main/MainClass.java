@@ -46,6 +46,16 @@ public class MainClass {
 
         }
 
+        Almacenamiento datosGuardados = new Almacenamiento();
+
+        String mensaje = "Buenas tardes.\n";
+
+        datosGuardados.guardar(mensaje);
+
+        LeerDatosGuardados revision = new LeerDatosGuardados();
+
+        revision.leer();
+
     }
 }
 
