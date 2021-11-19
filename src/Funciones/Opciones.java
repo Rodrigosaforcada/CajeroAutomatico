@@ -3,9 +3,11 @@ import java.util.Scanner;
 
 public abstract class Opciones {
 
-    protected static int retiro, deposito;
-    private static int saldo;
+    protected static int retiro;
 
+    protected static int deposito;
+
+    private static int saldo;
 
     Scanner entrada = new Scanner(System.in);
 
@@ -29,4 +31,5 @@ public abstract class Opciones {
     public void setSaldo(int saldo) {
         this.saldo = saldo;
     }
+
 }

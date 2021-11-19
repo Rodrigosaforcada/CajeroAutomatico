@@ -1,15 +1,12 @@
 package Funciones;
 
-import java.util.Iterator;
-import java.util.Scanner;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 public class Usuarios implements Comparable<Usuarios> {
 
     private String nombre;
     private int cuenta;
-    private static Set<Usuarios> usuarios = new TreeSet<>();
+    private static LinkedList<Usuarios> usuarios = new LinkedList<Usuarios>();
 
     public Usuarios(String nombre, int cuenta) {
         this.nombre = nombre;
@@ -20,7 +17,7 @@ public class Usuarios implements Comparable<Usuarios> {
 
     }
 
-    public static Set<Usuarios> getUsuarios() {
+    public static LinkedList<Usuarios> getUsuarios() {
         return usuarios;
     }
 
@@ -60,7 +57,7 @@ public class Usuarios implements Comparable<Usuarios> {
         return new Usuarios(nombreCompleto, nroCuenta);
     }
 
-    public static void mostrarUsuarios(Set<Usuarios> listaUsuarios) {
+    public static void mostrarUsuarios(LinkedList<Usuarios> listaUsuarios) {
 
         Iterator<Usuarios> iterator = usuarios.iterator();
 
@@ -79,7 +76,7 @@ public class Usuarios implements Comparable<Usuarios> {
     }
 
     public String toString() {
-        return "[Nombre: " + this.getNombre() + "] ";
+        return "[Nombre: " + this.getNombre() + ", Cuenta: " + this.cuenta + "] ";
     }
 
 

@@ -26,4 +26,8 @@ public class Cliente implements Serializable {
     public void setDni(int dni) {
         this.dni = dni;
     }
+
+    public String toString() {
+        return "Nombre: " + this.getNombre() + ", DNI: " + this.dni;
+    }
 }

@@ -1,8 +1,12 @@
 package Main;
 import Funciones.*;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.Scanner;
-import java.util.Set;
+import java.util.LinkedList;
 
 public class MainClass {
     public static void main(String[] args) {
@@ -11,7 +15,7 @@ public class MainClass {
         boolean salir = false;
 
         Scanner entrada = new Scanner(System.in);
-        Set<Usuarios> usuariosLista = Usuarios.getUsuarios();
+        LinkedList<Usuarios> usuariosLista = Usuarios.getUsuarios();
 
         while (!salir){
             System.out.println("\n\nMENU");
@@ -48,13 +52,38 @@ public class MainClass {
 
         Almacenamiento datosGuardados = new Almacenamiento();
 
-        String mensaje = "Buenas tardes.\n";
+        Opciones deposito = new Deposito();
+
+        String mensaje = "El depósito tiene actualmente " + deposito.getSaldo() +" pesos.\n";
 
         datosGuardados.guardar(mensaje);
 
         LeerDatosGuardados revision = new LeerDatosGuardados();
 
         revision.leer();
+
+        Cliente[] listaClientes = new Cliente[2];
+        listaClientes[0] = new Cliente("Martin", 34000);
+        listaClientes[1] = new Cliente("Eduardo", 47000);
+
+        try{
+            ObjectOutputStream datosSerializados = new ObjectOutputStream(new FileOutputStream("C:/Users/Usuario/Desktop/Datos Bancarios Guardados/Datos Clientes.txt"));
+
+            datosSerializados.writeObject(listaClientes);
+            datosSerializados.close();
+
+            ObjectInputStream datosDeserializados = new ObjectInputStream(new FileInputStream("C:/Users/Usuario/Desktop/Datos Bancarios Guardados/Datos Clientes.txt"));
+
+            Cliente[] clienteRecuperado1 = (Cliente[]) datosDeserializados.readObject();
+            datosDeserializados.close();
+
+            for(Cliente cliente : listaClientes){
+                System.out.println(cliente.toString());
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
     }
 }
