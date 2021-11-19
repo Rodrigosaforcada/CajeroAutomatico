@@ -11,7 +11,7 @@ public class Retiro extends Opciones{
             setSaldo(getSaldo() - retiro);
             System.out.println("Tu saldo es: " + getSaldo());
         }else{
-            System.out.println("ERROR, SECO");
+            System.out.println("ERROR");
         }
     }
 }
